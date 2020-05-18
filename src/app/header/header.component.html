@@ -1,0 +1,19 @@
+<header>
+  <div class="header-main">
+    <div class="header-main--first">
+      <fa-icon [icon]="faStar" class="fa-2x logo-color"></fa-icon>
+    </div>
+    <div class="header-main--second g-align-right">
+      <div class="search-icon-box">
+        <fa-icon [icon]="faSearch" class="g-color-white"></fa-icon>
+      </div>
+      <div class="cart-icon-box">
+        <label class="cart-length" *ngIf="cartLengthres.cartLength > 0">{{cartLengthres.cartLength}}</label>
+        <a [routerLink]="['/cart']">
+          <fa-icon [icon]="faShoppingCart" class="g-color-white"></fa-icon>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</header>

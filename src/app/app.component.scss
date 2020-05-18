@@ -1,0 +1,19 @@
+
+.footer-main{
+  padding: 7px 0;
+  background: #4269ea;
+  text-align: center;
+  span.footer-text{
+    display: inline-block;
+    color: #ffffff;
+    font-size: 14px;
+  }
+}
+
+/* Portrait and Landscape */
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 2) {
+
+}

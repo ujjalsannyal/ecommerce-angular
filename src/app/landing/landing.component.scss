@@ -1,0 +1,142 @@
+.landing-main{
+  display: flex;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  background: #f1f3f6;
+  .landing--nav-wraper{
+    flex-basis: 18%;
+    padding: 16px;
+    border-right: 1px solid #dddddd;
+  }
+  .landing--content-wraper{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-basis: 82%;
+    .action-items-list{
+      display: flex;
+      -webkit-box-flex: 1;
+      flex: 1 1 auto;
+      .action-item{
+        flex: 1 1 50%;
+        text-align: center;
+        padding: 16px 10px;
+        border-bottom: 1px solid #dddddd;
+        &:nth-child(1){
+          border-right: 0;
+        }
+        &.filter-action{
+          display: none;
+        }
+      }
+    }
+    .product-grid--main{
+      padding: 10px;
+      .products{
+        display: flex;
+        flex-wrap: wrap;
+        // flex: 1 1 auto;
+        .product--card{
+          padding: 2%;
+          flex-basis: 16%;
+          .product-image{
+            width: 100%;
+            height: 170px;
+            background: #fff;
+            img{
+              width: 100%;
+            }
+          }
+          .product-info{
+            .product-name{
+              padding: 5px 0;
+            }
+            .product-price-action{
+              display: flex;
+              padding: 5px 0;
+              font-weight: 600;
+              .current-price{
+                flex: 1 1;
+                color:rgba($color: #000000, $alpha: 0.9);
+                font-size: 14px;
+              }
+              .original-price{
+                flex: 1 1;
+                text-decoration: line-through;
+                color:rgba($color: #000000, $alpha: 0.6);
+                font-size: 12px;
+                line-height: 18px;
+                margin-left: 5px;
+              }
+              .discount{
+                flex: 1 1 50%;
+                color: rgba(72, 148, 74, 0.9);
+                text-align: right;
+                font-size: 14px;
+              }
+            }
+            .add-to-cart{
+              text-align: center;
+              margin-top: 7px;
+              button{
+                background: #f7ad22;
+                padding: 7px;
+                border-radius: 15px;
+                box-shadow: none;
+                border: 1px;
+                font-weight: 600;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+/* Portrait and Landscape */
+@media screen and (max-device-width: 414px){
+    .landing--nav-wraper{
+      display: none;
+    }
+
+    .landing--content-wraper{
+      .action-items-list{
+        .action-item{
+          &:nth-child(1){
+            border-right: 1px solid #dddddd !important;
+          }
+          &.filter-action{
+            display: block !important;
+          }
+        }
+      }
+    }
+    .product-grid--main{
+      padding: 0 !important;
+      .products{
+        .product--card{
+          flex-basis: calc(46% - 1px) !important;
+          border-bottom: 1px solid #dddddd;
+          &:nth-child(odd){
+            border-right: 1px solid #dddddd;
+          }
+        }
+      }
+    }
+}
+
+::ng-deep mat-slider .mat-slider-track-background{
+  background-color: rgba(0,0,0,.2) !important;
+}
+
+::ng-deep mat-slider{
+  .mat-slider-thumb, .mat-slider-track-fill{
+    background-color: #1a6fef !important;
+  }
+}
+::ng-deep mat-slider .mat-slider-ticks{
+  // opacity: 1;
+  // background: #000;
+}

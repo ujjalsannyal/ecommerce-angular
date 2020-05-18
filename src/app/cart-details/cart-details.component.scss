@@ -1,0 +1,163 @@
+.cart-main{
+  display: flex;
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  background: #f1f3f6;
+  padding: 16px;
+  .cart--product-wraper{
+    flex: 1 1 60%;
+    .cart-product{
+      display: flex;
+      border: 1px solid #dddddd;
+      padding: 10px 16px;
+      background: #ffffff;
+      margin-top: 10px;
+      &:nth-child(1){
+        margin-top: 0px;
+      }
+      .product-image{
+        flex-basis: 20%;
+        height: 130px;
+        background: #fff;
+        img{
+          width: 100%;
+        }
+      }
+      .product-details{
+        flex-basis: 80%;
+        display: flex;
+        .product-item-info{
+          align-self: flex-start;
+          flex-basis: 40%;
+
+          .product-name{
+            padding: 5px 0;
+          }
+          .product-price-action{
+            display: flex;
+            padding: 5px 0;
+            font-weight: 600;
+            .current-price{
+              flex: 1 1;
+              color:rgba($color: #000000, $alpha: 0.9);
+              font-size: 14px;
+            }
+            .original-price{
+              flex: 1 1;
+              text-decoration: line-through;
+              color:rgba($color: #000000, $alpha: 0.6);
+              font-size: 12px;
+              line-height: 18px;
+              margin-left: 5px;
+            }
+            .discount{
+              flex: 1 1 50%;
+              color: rgba(72, 148, 74, 0.9);
+              text-align: right;
+              font-size: 14px;
+            }
+          }
+        }
+        .product-item-count{
+          flex-basis: 33%;
+          align-self: center;
+          justify-content: center;
+          text-align: center;
+          .input-count-icon{
+            width: 24px;
+          }
+          input{
+            width: 20%;
+            margin: 0px 5px;
+          }
+        }
+        .product-item-remove{
+          flex-basis: 25%;
+          align-self: center;
+          justify-content: center;
+          text-align: center;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+
+
+    }
+  }
+  .cart--price-wraper{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-basis: 40%;
+    padding: 0 20px;
+    color: rgba(0, 0, 0, 0.8);
+    .cart-total{
+      border: 1px solid #dddddd;
+      .cart-total-header{
+        padding: 15px 10px 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-bottom: 1px solid #ddd;
+      }
+      .cart-total-boody{
+        .cart-total-discount, .cart-total-item{
+          padding: 10px;
+          display: flex;
+          .text{
+            flex-basis: 70%;
+          }
+          .price{
+            flex-basis: 30%;
+          }
+        }
+      }
+      .cart-total-footer{
+        .cart-total-payble{
+          font-weight: 600;
+          text-transform: capitalize;
+          border-top: 1px solid #ddd;
+          padding: 10px;
+          display: flex;
+          .text{
+            flex-basis: 70%;
+          }
+          .price{
+            flex-basis: 30%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* Portrait and Landscape */
+@media screen and (max-device-width: 414px){
+  .cart-main{
+    flex-direction: column;
+    .product-image{
+      flex-basis: 25% !important;
+    }
+    .product-details{
+      flex-direction: column;
+      flex-basis: 75% !important;
+      .product-item-info{
+        flex-basis: auto !important;
+        width: 100%;
+      }
+      .product-item-count{
+        margin-top: 10px;
+        flex-basis: auto !important;
+        text-align: left !important;
+        align-self: flex-start !important;
+      }
+      .product-item-remove{
+        margin-top: 10px;
+        text-align: left !important;
+        align-self: flex-start !important;
+      }
+    }
+    .cart--price-wraper{
+      padding: 0;
+    }
+  }
+}

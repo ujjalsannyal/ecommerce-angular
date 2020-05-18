@@ -1,0 +1,35 @@
+<div class="landing-main">
+  <div class="landing--nav-wraper content-height">
+    <app-action-filter [data]="actionFilter" [actionIcon]="faFilter" (rangeSelect)="onPriceRangeApply($event)"></app-action-filter>
+  </div>
+  <div class="landing--content-wraper content-height">
+    <div class="action-items-list">
+      <div class="action-item">
+        <app-action-cmp [data]="actionSort" [actionIcon]="faSort" (sortSelect)="onSortSelect($event)"></app-action-cmp>
+      </div>
+      <div class="action-item filter-action">
+        <app-action-filter [data]="actionFilter" [actionIcon]="faFilter" (rangeSelect)="onPriceRangeApply($event)"></app-action-filter>
+      </div>
+    </div>
+    <div class="product-grid--main">
+      <section class="products">
+        <div class="product--card" *ngFor="let p of products">
+          <div class="product-image">
+            <img src="{{p.image}}">
+          </div>
+          <div class="product-info">
+            <div class="product-name">{{p.name}}</div>
+            <div class="product-price-action">
+              <span class="current-price">{{p.price | discountedPrice: p.discount | currency:"&#8377;"}}</span>
+              <span class="original-price"  *ngIf="p.discount">{{p.price | currency:"&#8377;"}}</span>
+              <span class="discount" *ngIf="p.discount">{{p.discount}}% off</span>
+            </div>
+            <div class="add-to-cart ">
+              <button class="add-to-cart-button" (click)="addtoCart(p.id)">Add To Cart</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

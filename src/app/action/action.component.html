@@ -1,0 +1,32 @@
+<div class="action-main">
+  <div class="action-main--container" (click)="openModal()">
+    <fa-icon [icon]="actionIcon" class="action-main--container-icon"></fa-icon>
+    <span class="action-main--container-text">{{data.name}}</span>
+    <div class="action-list-desktop">
+      <ul class="list-ul">
+        <li class="list-li" *ngFor="let opt of data.options let i = index" >
+          <input class="" type="radio" name="option" value="{{opt.value}}" id="data{{i}}" (change)="selectOption($event)">
+          <label class="lebel-text" for="data{{i}}">{{opt.label}}</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="action-main--modal" [ngClass]="{active: modalActive}" *ngIf="!isDesktop">
+    <div class="action-main--modal-background" (click)="modalActive = false;"></div>
+    <div class="action-main--modal-container">
+      <div class="action-main--modal-container-header">{{data.name}} Options</div>
+      <div class="action-main--modal-container-body">
+        <ul class="list-ul">
+          <li class="list-li" *ngFor="let opt of data.options let k = index" >
+            <input class="" type="radio" name="option" [value]="opt.value" [(ngModel)]="selectedOpt" id="modaldata{{k}}">
+            <label class="lebel-text" for="modaldata{{k}}">{{opt.label}}</label>
+          </li>
+        </ul>
+      </div>
+      <div class="action-main--modal-container-footer">
+        <div class="button" (click)="modalActive = false;">Cancel</div>
+        <div class="button" (click)="applyOption()">Apply</div>
+      </div>
+    </div>
+  </div>
+</div>

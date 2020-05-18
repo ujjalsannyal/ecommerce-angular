@@ -1,0 +1,128 @@
+.action-main{
+  &--container{
+    &-icon{
+      color: rgba(0,0,0,0.8);
+      display: none;
+    }
+    &-text{
+      text-transform: capitalize;
+      font-weight: 600;
+      color: rgba(0,0,0,0.8);
+      margin-left: 4px;
+      line-height: 29px;
+      font-size: 16px;
+    }
+    display: flex;
+    .action-list-desktop{
+      .list-ul{
+        display: flex;
+        list-style: none;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        .list-li{
+          display: inline-block;
+          padding: 5px 10px;
+          display: flex;
+          input[type='radio']{
+            visibility: hidden;
+          }
+          input[type='radio']:checked + .lebel-text{
+            color: #4269ea;
+            border-bottom: 2px solid #4269ea;
+            cursor: pointer;
+          }
+          label.lebel-text{
+            margin-left: 7px;
+            font-weight: 600;
+            color: rgba($color: #000000, $alpha: 0.6);
+          }
+        }
+      }
+    }
+  }
+  &--modal{
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: left;
+    &.active{
+      display: block;
+    }
+    &-background{
+      background: rgba($color: #000000, $alpha: 0.5);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+    &-container{
+      position: relative;
+      top: 10%;
+      left: 10%;
+      background: #ffffff;
+      width: 80%;
+      &-header{
+        text-transform: capitalize;
+        padding: 10px;
+        font-weight: 600;
+      }
+      &-body{
+        .list-ul{
+          list-style: none;
+          list-style-type: none;
+          padding: 0;
+          margin: 0 0 10px 0;
+          .list-li{
+            padding: 5px 10px;
+            display: flex;
+            input[type='radio']{
+              margin: 3px 0 0;
+            }
+            label.lebel-text{
+              margin-left: 7px;
+            }
+          }
+        }
+      }
+      &-footer{
+        display: flex;
+        -webkit-box-flex: 1;
+        flex: 1 1 auto;
+        .button{
+          flex-grow: 1;
+          border-top: 1px solid #dddddd;
+          padding: 10px;
+          text-align: center;
+          font-weight: 600;
+          color: #4269ea;
+          &:nth-child(1){
+            border-right: 1px solid #dddddd;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Portrait and Landscape */
+@media screen and (max-device-width: 414px){
+  .action-main--container{
+    display: inline-block;
+    &-icon{
+      display: inline !important;
+    }
+    &-text{
+      margin-left: 4px;
+      line-height: normal;
+      font-size: 15px;
+    }
+    .action-list-desktop{
+      display: none !important;
+    }
+  }
+}

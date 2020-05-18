@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  box-sizing: border-box;
+  margin: 0 !important;
+  font-size: 15px;
+  color: rgba($color: #000000, $alpha: 0.8);
+  font-family: "Roboto, sans-serif";
+}
+
+$colorYellow: #f7ce23;
+
+.min-content-hgt{
+  min-height: calc(100vh - 82px);
+}
+.content-height{
+  min-height: calc(100vh - 124px);
+}
+
+.g-color-white{
+  color: #ffffff;
+}
+.g-align-left{
+  text-align: left;
+}
+.g-align-right{
+  text-align: right;
+}
+
+/* Portrait and Landscape */
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 2) {
+
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

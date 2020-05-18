@@ -1,0 +1,37 @@
+
+.header-main{
+  padding: 10px;
+  background: #4269ea;
+  display: flex;
+  flex: 1 1 auto;
+  &--first{
+    flex-grow: 1;
+  }
+  &--second{
+    flex-grow: 1;
+    // line-height: 37px;
+    .search-icon-box{
+      padding: 7px;
+      display: inline-block;
+    }
+    .cart-icon-box{
+      padding: 7px;
+      display: inline-block;
+      position: relative;
+      .cart-length{
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1px 4px;
+        color: #ffffff;
+        background: red;
+        border-radius: 13px;
+        font-size: 10px;
+        display: inline-block;
+      }
+    }
+  }
+  .logo-color{
+    color: #f7ce23;
+  }
+}

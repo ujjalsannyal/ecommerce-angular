@@ -1,0 +1,52 @@
+<div class="cart-main content-height">
+  <div class="cart--product-wraper">
+    <section class="cart-product" *ngFor="let cart of cartProduct">
+      <div class="product-image">
+        <img src="{{cart.product.image}}">
+      </div>
+      <div class="product-details">
+        <div class="product-item-info">
+          <div class="product-name">{{cart.product.name}}</div>
+          <div class="product-price-action">
+            <span class="current-price">{{cart.product.price | discountedPrice: cart.product.discount | currency:"&#8377;"}}</span>
+            <span class="original-price" *ngIf="cart.product.discount">{{cart.product.price | currency:"&#8377;"}}</span>
+            <span class="discount" *ngIf="cart.product.discount">{{cart.product.discount}}% off</span>
+          </div>
+        </div>
+        <div class="product-item-count">
+          <div class="item-count-wraper">
+            <fa-icon [icon]="faPlusCircle" class="input-count-icon" (click)="addItem(cart.product.id)"></fa-icon>
+            <input type="text" class="count-input" [value]="cart.quantity">
+            <fa-icon [icon]="faMinusCircle" class="input-count-icon" (click)="reduceItem(cart.product.id)"></fa-icon>
+          </div>
+        </div>
+        <div class="product-item-remove" >
+          <span (click)="removeCart(cart.product.id)">Remove</span>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="cart--price-wraper">
+    <div class="cart-total">
+      <div class="cart-total-header">
+        Price Details
+      </div>
+      <div class="cart-total-boody">
+        <div class="cart-total-item">
+          <span class="text">Price ( {{priceDetails.totalItem}} Item) : </span>
+          <span class="price">{{priceDetails.price}}</span>
+        </div>
+        <div class="cart-total-discount">
+          <span class="text">Discounts : </span>
+          <span class="price">{{priceDetails.discount}}</span>
+        </div>
+      </div>
+      <div class="cart-total-footer">
+        <div class="cart-total-payble">
+          <span class="text">Total Payble</span>
+          <span class="price">{{priceDetails.price - priceDetails.discount}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
