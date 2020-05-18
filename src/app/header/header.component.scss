@@ -10,6 +10,21 @@
   &--second{
     flex-grow: 1;
     // line-height: 37px;
+    .search-input-wraper{
+      display: inline-block;
+      padding: 7px;
+      .search-input{
+        color: #fff;
+        border: 0;
+        padding: 2px;
+        border-bottom: 1px solid #ffffff;
+        background: transparent;
+        outline: none;
+        &::placeholder{
+          color: #ffffff;
+        }
+      }
+    }
     .search-icon-box{
       padding: 7px;
       display: inline-block;

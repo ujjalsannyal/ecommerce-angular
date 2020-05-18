@@ -12,7 +12,7 @@ import {PRODUCTCART} from '../model/PoductCartData';
 export class ProductCartService {
 
   constructor(private productService: ProductService) { }
-  private subject = new Subject<any>();
+  private cartLength = new Subject<number>();
 
   private updateProduct(product) {
     // Check existing product.
@@ -62,10 +62,10 @@ export class ProductCartService {
   }
 
   updateCartLength() {
-    this.subject.next({ cartLength: PRODUCTCART.length });
+    this.cartLength.next(PRODUCTCART.length);
   }
   getCartLength(): Observable<number> {
-    return this.subject.asObservable();
+    return this.cartLength.asObservable();
   }
 
   getAllCart(): Observable<ProductCart[]>{

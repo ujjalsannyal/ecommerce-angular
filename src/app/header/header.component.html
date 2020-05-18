@@ -4,11 +4,14 @@
       <fa-icon [icon]="faStar" class="fa-2x logo-color"></fa-icon>
     </div>
     <div class="header-main--second g-align-right">
+      <div class="search-input-wraper">
+        <input class="search-input" placeholder="Search" (change)="searchChange($event)">
+      </div>
       <div class="search-icon-box">
         <fa-icon [icon]="faSearch" class="g-color-white"></fa-icon>
       </div>
       <div class="cart-icon-box">
-        <label class="cart-length" *ngIf="cartLengthres.cartLength > 0">{{cartLengthres.cartLength}}</label>
+        <label class="cart-length" *ngIf="cartLength > 0">{{cartLength}}</label>
         <a [routerLink]="['/cart']">
           <fa-icon [icon]="faShoppingCart" class="g-color-white"></fa-icon>
         </a>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject, BehaviorSubject } from 'rxjs';
 
 import { Product } from '../model/Product';
 import { PRODUCTS } from '../model/ProductsData';
@@ -9,10 +9,20 @@ import { PRODUCTS } from '../model/ProductsData';
 })
 export class ProductService {
 
+  private productList = new BehaviorSubject<Product[]>(PRODUCTS);
   constructor() { }
 
+  updateProductOnSearch(searchTerm) {
+    const products: Product[] = PRODUCTS.filter(p => {
+      return p.name.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+
+    this.productList.next(products);
+  }
+
   getProducts(): Observable<Product[]> {
-    return of(PRODUCTS);
+    // return of(PRODUCTS);
+    return this.productList.asObservable();
   }
 
   getProductById(id: string): Observable<Product> {

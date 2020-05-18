@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faStar, faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { ProductCartService } from '../service/product-cart.service';
+import { ProductService } from '../service/product.service';
 
 
 @Component({
@@ -12,19 +13,28 @@ export class HeaderComponent implements OnInit {
   faStar = faStar;
   faShoppingCart = faShoppingCart;
   faSearch = faSearch;
-  public cartLengthres: any = {cartLength: 0};
+  public cartLength = 0;
+  public cartServiceSub;
 
-  constructor(private productCartService: ProductCartService) { }
+  constructor(private productCartService: ProductCartService, private productService: ProductService) { }
 
   ngOnInit() {
     this.getCartLength();
   }
 
   getCartLength(): void {
-    this.productCartService.getCartLength()
+    this.cartServiceSub = this.productCartService.getCartLength()
     .subscribe(res => {
-      console.log('header:getCartLength:  ', res);
-      this.cartLengthres = res;
-    })
+      // console.log('header:getCartLength:  ', res);
+      this.cartLength = res;
+    });
+  }
+  searchChange($event): void {
+    const value: string = $event.target.value;
+    this.productService.updateProductOnSearch(value);
+
+  }
+  ngOnDestroy(): void {
+    this.cartServiceSub.unsubscribe();
   }
 }
